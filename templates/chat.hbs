@@ -11,9 +11,9 @@
           </div>
           <div class="chat-text">
                 {{#if this.length}}
-                    {{a11y_text this}}
+                    {{{compile this}}}
                 {{else}}
-                    {{a11y_text body}}
+                    {{{compile body}}}
                 {{/if}}
           </div>
         </div>
