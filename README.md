@@ -18,6 +18,8 @@ For core model attributes see [**core model attributes**](https://github.com/ada
 
 >**continueText** (string): The text to display to trigger the next item (Optional - defaults to "Next")
 
+**_chatboxHeight** (Number): The height to assign to the chatbox. Scrollbars will appear inside it as chat grows to outsize it.
+
 **_participants** (object): This allows you to specify the participants in the chat (Optional).
 
 >**name** (string): The name of the participant

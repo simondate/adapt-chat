@@ -29,6 +29,14 @@
       "validators": [],
       "help": "This is the instruction text"
     },
+    "_chatboxHeight": {
+      "type": "number",
+      "required": false,
+      "default": 600,
+      "title": "Chatbox height",
+      "inputType": "Number",
+      "help": "The height to assign to the chatbox. Scrollbars will appear inside it as chat grows to outsize it"
+    },
     "_participants": {
       "type": "array",
       "required": true,
