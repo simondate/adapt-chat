@@ -19,30 +19,58 @@
 }
 
 .chat {
+
 	.chat-lines {
 		position: relative;
 		margin-bottom: -8px;
+		overflow: auto;
 		.stacklist-transition(@stacklist-time);
+		margin: 2rem 0;
+		min-height: 400px;
 	}
 
 	.chat-line {
 		.stacklist-transition(@chat-line-time);
 		text-align: left;
 		min-height: 100px;
-		margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        margin: 2rem 0;
+		animation: fadeInUp ease 1s;
+	}
+
+	&.participant-1 {
+		flex-flow: row-reverse;
 	}
 
 	.chat-icon {
-		width: 100px;
-		position: absolute;
-		left: 0;
+        width: 50px;
+        margin: 0rem 2rem;
+        height: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
 		img {
-			max-height: 100px;
+			height: 50px;
+			width: 50px;
+			object-fit: cover;
+			border-radius: 50%;
+			box-shadow: 0px 3px 5px 1px #1019330f;
 		}
 	}
 
 	.chat-icon-name {
 		overflow: hidden;
+		text-align: center;
+		padding-top: 5px;
+        width: inherit;
+        font-weight: 400;
+        font-family: @title-family;
 	}
 
 	.chat-text {
@@ -52,31 +80,31 @@
 		position: relative;
 		padding: 20px;
 		margin-bottom: 8px;
-		background-color: @primary-color;
-		color: @heading-color;
+		background-color: @font-color-inverted;
+		color: @font-color;
+		margin: 1rem 0;
+		p {
+			margin: 0;
+		}
+
+		@media only screen and (max-width: @device-width-small) { 
+			margin-left: 11px !important;
+			margin-top: 110px !important;
+		}
 	}
 
 	.chat-line.participant-0 {
 		text-align: right;
-
+		flex-direction: row-reverse;
 		.chat-icon {
 			right: 0;
 			left: auto;
 		}
 
 		.chat-text {
-			background-color: #ffffff;
-			color: @primary-color;
-			border: 1px solid @primary-color;
-			margin-right: 100px;
-		}
-	}
-	@media (max-width: @device-width-medium) {
-		.chat-icon-name {
-			display: none;
-		}
-		.chat-icon {
-			width: 65px;
+			background-color: @item-color;
+			color: @item-color-inverted;
+			margin-right: 0;
 		}
 	}
 
@@ -87,125 +115,11 @@
 		height: 53px;
 		width: 100%;
 		text-align: center;
+		margin-top: 1rem;
 		.stacklist-transition(@stacklist-time);
 
 		button {
 			width: 210px;
 		}
 	}
-}
-
-@media only screen and (max-width: @device-width-small){
-	.chat-component .chat-text {
-		margin-left: 11px !important;
-		margin-top: 110px !important;
-	}
-}
-
-.chat-line {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin: 1rem 1rem;
-}
-
-.chat-icon {
-    width: 3rem;
-    margin: 0rem 2rem;
-}
-
-.chat-line.participant-1 {
-    flex-flow: row-reverse;
-}
-
-.chat-icon-name {
-    text-align: center;
-    padding-top: 5px;
-}
-
-.chat-text {
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    padding: 0rem 1rem;
-}
-.participant-0 .chat-text {
-    background-color: @primary-color !important;
-    color: #fff;
-}
-
-button.stacklist-next {
-    padding: 0.7rem 4rem;
-    border-radius: 5px;
-    background: @primary-color;
-    color: #fff;
-}
-
-.stacklist-button {
-    text-align: center;
-}
-
-img.chat-icon-inner {
-    border-radius: 50%;
-    box-shadow: 0px 3px 5px 1px #1019330f;
-}
-
-.chat-line {
-    animation: fadeInUp ease 1s;
-}
-  
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
-
-.chat-lines {
-    overflow: auto;
-    border: solid 1px #eeeeee;
-    border-radius: 10px;
-}
-
-.stacklist-button {
-    margin-top: 1rem;
-}
-
-.chat-lines {
-    min-height: 500px;
-}
-
-.chat-icon {
-    width: 50px;
-    margin: 0rem 2rem;
-    height: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.chat-line {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin: 2rem 2rem;
-}
-
-.chat-icon-name {
-    text-align: center;
-    padding-top: 5px;
-    width: inherit;
-    font-weight: 400;
-    font-family: @title-family;
-}
-img.chat-icon-inner {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
 }
