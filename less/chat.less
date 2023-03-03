@@ -1,6 +1,15 @@
 @stacklist-time: 0.25s;
 @chat-line-time: 0.25s;
 
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	 }
+}
+
 .stacklist-transition(@time) {
 	-webkit-transition: @time;
 	-moz-transition: @time;

@@ -16,6 +16,7 @@ define(function(require) {
 
     postRender: function() {
       if (!this.model.get("_isComplete") || this.model.get("_isResetOnRevisit")) this.setupListItems();
+      this.$('.chat-lines').height(this.model.get('_chatboxHeight'));
       this.setReadyStatus();
     },
 
@@ -29,20 +30,8 @@ define(function(require) {
     },
 
     setupListItems: function() {
-      var $stacklistItems = this.$(".chat-lines");
-      $stacklistItems.height($stacklistItems.height());
-      var $items = this.$(".chat-line");
-      var wWin = $(window).width();
-      var context = this;
-      $items.each(function(i) {
-        var $el = $items.eq(i);
-        var animateLeft;
-        animateLeft = context.model.get("_items")[i]._participant != 0;
-        var offset = $el.offset();
-        offset.left = animateLeft ? -($el.outerWidth() + 10) : wWin + 10;
-        $el.offset(offset).hide();
-      });
       this.$(".stacklist-button").show();
+      const context = this;
       _.each(this.model.get('_items'), function(item, index) {
         context.setImage(index, item);
       });
@@ -64,7 +53,6 @@ define(function(require) {
       this.model.set("_stage", stage);
       this.$(".stacklist-next").hide();
       var context = this;
-      Adapt.log.debug(context.model.get("_items")[stage]._timeToShow);
       setTimeout(function() {
         if (context.model.get("_items")[stage]._button._isEnabled || stage === 0) {
           var continueText = context.model.get("_items")[stage]._button.buttonText || "Start";
@@ -76,16 +64,11 @@ define(function(require) {
 
     showNextStage: function(stage) {
       var $item = this.$(".chat-line").eq(stage);
-      $item.show();
+      $item.removeClass('u-display-none');
       var h = $item.outerHeight(true);
       this.$(".stacklist-button").css({
         top: "+=" + h
       });
-      setTimeout(function() {
-        $item.css({
-          left: 0
-        });
-      }, 250);
 
       if (this.model.get("_items").length - 1 === stage) { // reached the end
         this.onComplete();
@@ -94,6 +77,8 @@ define(function(require) {
       } else { // show next item after x seconds
         this.nextItem();
       }
+  
+      this.$('.chat-lines').animate({ scrollTop: 1000 }, "slow"); // 1000 chosen as is big enough to scroll to the bottom of the box with every click
     },
 
     checkNextButton: function(nextStage) {
@@ -101,15 +86,8 @@ define(function(require) {
     },
 
     onComplete: function() {
-
       var $button = this.$(".stacklist-button");
-      $button.css({
-        top: $(window).height()
-      });
-      setTimeout(function() {
-        $button.remove();
-      }, 500);
-
+      $button.remove();
       this.setCompletionStatus();
     }
   });
