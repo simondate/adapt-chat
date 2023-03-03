@@ -37,11 +37,7 @@ define(function(require) {
       $items.each(function(i) {
         var $el = $items.eq(i);
         var animateLeft;
-        if(context.model.get("_singleParticipant")) {
-          animateLeft = true;
-        } else {
-          animateLeft = context.model.get("_items")[i]._participant != 0;
-        }
+        animateLeft = context.model.get("_items")[i]._participant != 0;
         var offset = $el.offset();
         offset.left = animateLeft ? -($el.outerWidth() + 10) : wWin + 10;
         $el.offset(offset).hide();

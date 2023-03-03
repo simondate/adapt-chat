@@ -29,15 +29,6 @@
       "validators": [],
       "help": "This is the instruction text"
     },
-    "_singleParticipant": {
-        "type": "boolean",
-        "required": true,
-        "default": false,
-        "title": "Single Participant",
-        "inputType": "Checkbox",
-        "validators": [],
-        "help": "Left aligns the single particpant"
-    },
     "_participants": {
       "type": "array",
       "required": true,
