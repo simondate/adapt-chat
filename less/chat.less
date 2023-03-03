@@ -44,7 +44,7 @@
 		padding: 20px;
 		margin-bottom: 8px;
 		background-color: @primary-color;
-		color: @primary-color-inverted;
+		color: @heading-color;
 	}
 
 	.chat-line.participant-0:not(.sole-participant) {
@@ -56,7 +56,7 @@
 		}
 
 		.chat-text {
-			background-color: @primary-color-inverted;
+			background-color: #ffffff;
 			color: @primary-color;
 			border: 1px solid @primary-color;
 			margin-right: 100px;
@@ -91,4 +91,112 @@
 		margin-left: 11px !important;
 		margin-top: 110px !important;
 	}
+}
+
+.chat-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 1rem 1rem;
+}
+
+.chat-icon {
+    width: 3rem;
+    margin: 0rem 2rem;
+}
+
+.chat-line.participant-1 {
+    flex-flow: row-reverse;
+}
+
+.chat-icon-name {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.chat-text {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 0rem 1rem;
+}
+.participant-0 .chat-text {
+    background-color: @primary-color !important;
+    color: #fff;
+}
+
+button.stacklist-next {
+    padding: 0.7rem 4rem;
+    border-radius: 5px;
+    background: @primary-color;
+    color: #fff;
+}
+
+.stacklist-button {
+    text-align: center;
+}
+
+img.chat-icon-inner {
+    border-radius: 50%;
+    box-shadow: 0px 3px 5px 1px #1019330f;
+}
+
+.chat-line {
+    animation: fadeInUp ease 1s;
+}
+  
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+.chat-lines {
+    overflow: auto;
+    border: solid 1px #eeeeee;
+    border-radius: 10px;
+}
+
+.stacklist-button {
+    margin-top: 1rem;
+}
+
+.chat-lines {
+    min-height: 500px;
+}
+
+.chat-icon {
+    width: 50px;
+    margin: 0rem 2rem;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 2rem 2rem;
+}
+
+.chat-icon-name {
+    text-align: center;
+    padding-top: 5px;
+    width: inherit;
+    font-weight: 400;
+    font-family: @title-family;
+}
+img.chat-icon-inner {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
 }
