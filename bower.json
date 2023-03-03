@@ -1,8 +1,8 @@
 {
   "name": "adapt-chat",
   "description": "Creates a scenario driven 'group chat'",
-  "version": "2.1.20",
-  "framework": ">=2.0.0",
+  "version": "2.2.0",
+  "framework": ">=5",
   "displayName": "Chat",
   "component": "chat",
   "main": "/js/adapt-chat.js",
