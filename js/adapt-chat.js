@@ -65,9 +65,9 @@ define(function(require) {
     showNextStage: function(stage) {
       var $item = this.$(".chat-line").eq(stage);
       $item.removeClass('u-display-none');
-      var h = $item.outerHeight(true);
+      var h = $item.outterHeight();
       this.$(".stacklist-button").css({
-        top: "+=" + h
+        top: "+=" + (h + 32)
       });
 
       if (this.model.get("_items").length - 1 === stage) { // reached the end
