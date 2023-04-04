@@ -67,7 +67,8 @@ define(function(require) {
       $item.removeClass('u-display-none');
       var h = $item.outerHeight();
       this.$(".stacklist-button").css({
-        top: "+=" + (h + 32)
+        top: "+=" + (h + 4),
+        marginTop: '1.5rem'
       });
 
       if (this.model.get("_items").length - 1 === stage) { // reached the end

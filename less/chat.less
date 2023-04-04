@@ -1,5 +1,5 @@
-@stacklist-time: 0.25s;
-@chat-line-time: 0.25s;
+@stacklist-time: 0.75s;
+@chat-line-time: 1s;
 
 @keyframes fadeInUp {
 	0% {
@@ -22,10 +22,10 @@
 
 	.chat-lines {
 		position: relative;
-		margin-bottom: -8px;
 		overflow: auto;
 		.stacklist-transition(@stacklist-time);
 		min-height: 400px;
+		padding: 1rem 0 3rem;
 	}
 
 	.chat-line {
@@ -36,8 +36,12 @@
         align-items: center;
         flex-wrap: nowrap;
         flex-direction: row;
-        margin: 2rem 0;
-		animation: fadeInUp ease 1s;
+        margin: 0.25rem 0;
+		animation: fadeInUp ease @chat-line-time;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	&.participant-1 {
@@ -85,11 +89,6 @@
 		p {
 			margin: 0;
 		}
-
-		@media only screen and (max-width: @device-width-small) { 
-			margin-left: 11px !important;
-			margin-top: 110px !important;
-		}
 	}
 
 	.chat-line.participant-0 {
@@ -114,7 +113,7 @@
 		height: 53px;
 		width: 100%;
 		text-align: center;
-		margin-top: 1rem;
+		margin-top: 3rem;
 		.stacklist-transition(@stacklist-time);
 
 		button {
