@@ -84,11 +84,16 @@
 		margin-left: 110px;
 		display: inline-block;
 		position: relative;
-		padding: 20px;
-		margin-bottom: 8px;
+		padding: 1rem;
 		background-color: @font-color-inverted;
 		color: @font-color;
 		margin: 1rem 4rem 1rem 0;
+
+		@media (max-width: @device-width-medium) {
+			padding: 0.5rem;
+			margin: 1rem 1rem 1rem 1rem;
+		}
+		
 		p {
 			margin: 0;
 		}
@@ -109,12 +114,15 @@
 		.chat-text {
 			background-color: @item-color;
 			color: @item-color-inverted;
-			margin: 1rem 1rem 1rem 4rem;
+			margin: 1rem 0 1rem 4rem;
+
+			@media (max-width: @device-width-medium) {
+				margin: 1rem 0 1rem 1rem;
+			}
 		}
 	}
 
 	.stacklist-button {
-		display: none;
 		position: absolute;
 		top: 0;
 		height: 53px;
