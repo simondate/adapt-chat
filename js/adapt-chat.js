@@ -30,7 +30,7 @@ define(function(require) {
     },
 
     setupListItems: function() {
-      this.$(".stacklist-button").show();
+      this.$(".stacklist-button").removeClass('u-display-none')
       const context = this;
       _.each(this.model.get('_items'), function(item, index) {
         context.setImage(index, item);
