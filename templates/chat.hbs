@@ -15,6 +15,9 @@
                 {{else}}
                     {{{compile body}}}
                 {{/if}}
+                {{#if _graphic.src}}
+                  <img class="chat-line-graphic" src="{{_graphic.src}}" {{#if _graphic.alt}}aria-label="{{{_graphic.alt}}}{{/if}}" />
+                {{/if}}
           </div>
         </div>
       {{/each}}
