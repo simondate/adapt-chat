@@ -16,8 +16,14 @@ define(function(require) {
 
     postRender: function() {
       if (!this.model.get("_isComplete") || this.model.get("_isResetOnRevisit")) this.setupListItems();
-      this.$('.chat-lines').height(this.model.get('_chatboxHeight') + "px");
+      this.resize();
+      this.listenTo(Adapt, 'device:resize', this.onScreenSizeChanged);
       this.setReadyStatus();
+    },
+
+    resize: function() {
+      const screenSize = Adapt.device.screenSize === 'large' ? '_large' : '_small';
+      this.$('.chat-lines').height(this.model.get('_chatboxHeight')[screenSize] + "px");
     },
 
     setupButton: function() {

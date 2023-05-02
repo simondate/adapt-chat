@@ -30,12 +30,27 @@
       "help": "This is the instruction text"
     },
     "_chatboxHeight": {
-      "type": "number",
+      "type": "object",
       "required": false,
-      "default": 600,
       "title": "Chatbox height",
-      "inputType": "Number",
-      "help": "The height to assign to the chatbox. Scrollbars will appear inside it as chat grows to outsize it"
+      "properties": {
+        "_small": {
+          "type": "number",
+          "required": false,
+          "default": 400,
+          "title": "Small",
+          "inputType": "Number",
+          "help": "The mobile device height to assign to the chatbox. Scrollbars will appear inside it as chat grows to outsize it"
+        },
+        "_large": {
+          "type": "number",
+          "required": false,
+          "default": 600,
+          "title": "Large",
+          "inputType": "Number",
+          "help": "The desktop device height to assign to the chatbox. Scrollbars will appear inside it as chat grows to outsize it"
+        }
+      }
     },
     "_participants": {
       "type": "array",
