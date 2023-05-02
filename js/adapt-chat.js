@@ -16,7 +16,7 @@ define(function(require) {
 
     postRender: function() {
       if (!this.model.get("_isComplete") || this.model.get("_isResetOnRevisit")) this.setupListItems();
-      this.$('.chat-lines').height(this.model.get('_chatboxHeight'));
+      this.$('.chat-lines').height(this.model.get('_chatboxHeight') + "px");
       this.setReadyStatus();
     },
 
