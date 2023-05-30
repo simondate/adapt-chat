@@ -71,6 +71,7 @@ define(function(require) {
     showNextStage: function(stage) {
       var $item = this.$(".chat-line").eq(stage);
       $item.removeClass('u-display-none');
+      $($item).focus();
       var h = $item.outerHeight();
       this.$(".stacklist-button").css({
         top: "+=" + (h + 4),
